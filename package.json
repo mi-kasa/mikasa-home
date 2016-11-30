@@ -7,8 +7,9 @@
     "url": "https://github.com/callemall/material-ui.git"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
-    "build": "webpack --config webpack-production.config.js --progress --colors"
+    "start-frontend": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+    "build-frontend": "webpack --config webpack-production.config.js --progress --colors",
+    "start": "node index.js"
   },
   "private": true,
   "devDependencies": {
@@ -22,6 +23,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "debug": "^2.3.3",
+    "express": "^4.14.0",
     "material-ui": "^0.16.2",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
