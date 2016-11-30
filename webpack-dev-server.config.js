@@ -17,8 +17,18 @@ const config = {
     devtool: 'eval',
     hot: true, // Live-reload
     inline: true,
-    port: 3000, // Port Number
+    port: 8080, // Port Number
     host: 'localhost', // Change to '0.0.0.0' for external facing server
+    proxy:{
+      '/api/**' : {
+        target: 'http://localhost:3000/api', 
+        changeOrigin: true,
+        logLevel: 'debug',
+        pathRewrite: {
+          "^/api": ""
+        },
+      }
+    }
   },
   devtool: 'eval',
   output: {
