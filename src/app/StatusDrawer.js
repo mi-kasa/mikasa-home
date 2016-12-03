@@ -43,10 +43,9 @@ class StatusDrawer extends Component {
     }
     var items = [];
     this.props.apps.forEach((app, index) => {
-      const mounted = `mounted at ${app.mount}`;
       items.push(<ListItem
             primaryText={app.name}
-            secondaryText={mounted}
+            secondaryText={app.description}
             key={index}
             onTouchTap={this.props.navigator.bind(null, app.mount)}
           />)

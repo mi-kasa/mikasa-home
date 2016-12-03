@@ -27,7 +27,7 @@ class Main extends Component {
 
     this.state = {
       drawerOpen: false,
-      installed_apps: model_mock.installed_apps,
+      installed_apps: [],
       current_page: ''
     };
   }
@@ -36,6 +36,24 @@ class Main extends Component {
     this.setState({
       drawerOpen: !this.state.drawerOpen
     })
+  }
+
+  componentDidMount() {
+    // Get installed apps
+    fetch('/api/v1/packages/installed').
+      then(response => {
+        return response.json()
+      }).
+      then(apps => {
+        var installed_apps = apps.map(app => {
+          const pkg = app.package;
+          return {
+            name: pkg.name,
+            description: pkg.description
+          }
+        });
+        this.setState({installed_apps});
+      });
   }
 
   navigate(url) {
@@ -66,23 +84,6 @@ class Main extends Component {
       </MuiThemeProvider>
     );
   }
-}
-
-const model_mock = {
-  installed_apps: [
-    {
-      name: 'Media Sync',
-      mount: '/uploader',
-      module: '/Users/arcturus/dev/android/MediaSync/server/index.js'
-    },
-    {
-      name: 'Photo Gallery',
-      mount: 'http://localhost:3004/?headless=true',
-      module: '/Users/arcturus/dev/tests/mikasa-gallery/index.js'
-    },
-  ],
-  available_apps: [
-  ]
 }
 
 export default Main;
