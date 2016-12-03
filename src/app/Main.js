@@ -21,6 +21,14 @@ const muiTheme = getMuiTheme({
   },
 });
 
+function getDisplayName(name) {
+  if (name.indexOf('mikasa-') === 0) {
+    return name.replace('mikasa-', '');
+  }
+
+  return name;
+}
+
 class Main extends Component {
   constructor(props, context) {
     super(props, context);
@@ -56,7 +64,9 @@ class Main extends Component {
       });
   }
 
-  navigate(url) {
+  navigate(app) {
+    const name = getDisplayName(app.name);
+    const url = `/${name}/?headless=true`;
     this.setState({
       current_page: url,
       drawerOpen: false

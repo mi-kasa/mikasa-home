@@ -47,7 +47,7 @@ class StatusDrawer extends Component {
             primaryText={app.name}
             secondaryText={app.description}
             key={index}
-            onTouchTap={this.props.navigator.bind(null, app.mount)}
+            onTouchTap={this.props.navigator.bind(null, app)}
           />)
     });
     return (
