@@ -36,7 +36,7 @@ class Main extends Component {
     this.state = {
       drawerOpen: false,
       installed_apps: [],
-      current_page: ''
+      current_page: 'config.html'
     };
   }
 
