@@ -1,11 +1,7 @@
 {
-  "name": "material-ui-example-browserify",
-  "version": "0.15.0",
-  "description": "Sample project that uses Material-UI",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/callemall/material-ui.git"
-  },
+  "name": "mikasa-home",
+  "version": "0.0.1",
+  "description": "Super Server for mikasa project, mounts different apps providing multiple functionalities",
   "scripts": {
     "start-frontend": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build-frontend": "webpack --config webpack-production.config.js --progress --colors",
